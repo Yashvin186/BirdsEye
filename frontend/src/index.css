@@ -1,0 +1,240 @@
+:root {
+  /* Application surround */
+  --bg-outer:          #5E6368;  /* Graphite gray outside the main workspace */
+  --bg-shell:          #4D5258;  /* Intermediate shell/background */
+  --bg-sidebar:        #34383E;  /* Charcoal navigation */
+  --bg-sidebar-raised: #292D32;  /* Selected rows, nested items, inset areas */
+
+  /* Work surfaces */
+  --bg-panel:          #C7CAD1;  /* Main cool-gray panel */
+  --bg-panel-soft:     #D7D9DE;  /* Secondary/light panel */
+  --bg-panel-inset:    #AEB3BD;  /* Charts, preview wells, inset regions */
+  --bg-panel-white:    #F0F1F3;  /* Rare high-contrast content area */
+
+  /* Accent colors */
+  --accent-lime:       #A7ED79;  /* Primary actions, selected success state */
+  --accent-lime-hover: #B9F49A;  /* Hover state */
+  --accent-lime-dark:  #4E9B28;  /* Darker accent for text/icons on light surfaces */
+  --accent-slate:      #6C7999;  /* Secondary buttons and selected controls */
+  --accent-slate-dark: #53617F;  /* Hover/pressed secondary state */
+
+  /* Text on dark surfaces */
+  --text-on-dark:      #F7F8FA;
+  --text-dark-muted:   #C2C6CC;
+  --text-dark-subtle:  #9298A1;
+
+  /* Text on light surfaces */
+  --text-on-light:     #171A20;
+  --text-light-muted:  #3D424B;
+  --text-light-subtle: #606773;
+
+  /* Borders and separators */
+  --border-dark:       rgba(255, 255, 255, 0.14);
+  --border-light:      rgba(20, 24, 31, 0.16);
+  --border-strong:     rgba(20, 24, 31, 0.30);
+
+  /* Semantic status colors */
+  --status-success:    #4C8F35;
+  --status-success-bg: rgba(167, 237, 121, 0.35);
+  --status-warning:    #946414;
+  --status-warning-bg: #F3DDAA;
+  --status-error:      #A8323D;
+  --status-error-bg:   #F2C7CB;
+  --status-info:       #435B8A;
+  --status-info-bg:    #D7DEED;
+
+  /* Viewer-only background */
+  --viewer-bg:         #1F2329;
+  --viewer-grid:       rgba(255, 255, 255, 0.16);
+
+  /* Fonts */
+  --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono:    'JetBrains Mono', 'Consolas', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-outer);
+  color: var(--text-on-light);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+/* App Shell Structure */
+.app-shell {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-outer);
+  padding: 12px;
+  gap: 12px;
+}
+
+.sidebar {
+  width: 290px;
+  min-width: 290px;
+  height: 100%;
+  max-height: 100%;
+  background-color: var(--bg-sidebar);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  color: var(--text-on-dark);
+  border: 1px solid var(--border-dark);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.main-content {
+  flex: 1;
+  background-color: var(--bg-panel);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Typography styles */
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-heading);
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+/* Common button patterns */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+
+.btn-primary {
+  background-color: var(--accent-lime);
+  color: #171A20;
+}
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--accent-lime-hover);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: var(--accent-slate);
+  color: #FFFFFF;
+}
+.btn-secondary:hover:not(:disabled) {
+  background-color: var(--accent-slate-dark);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--border-strong);
+  color: var(--text-on-light);
+}
+.btn-outline:hover:not(:disabled) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.btn-danger {
+  background-color: var(--status-error);
+  color: #FFFFFF;
+}
+.btn-danger:hover:not(:disabled) {
+  background-color: #8C252F;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Badge & Tag components */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 3px;
+  letter-spacing: 0.5px;
+}
+
+.badge-success {
+  background-color: var(--status-success-bg);
+  color: var(--status-success);
+}
+.badge-warning {
+  background-color: var(--status-warning-bg);
+  color: var(--status-warning);
+}
+.badge-error {
+  background-color: var(--status-error-bg);
+  color: var(--status-error);
+}
+.badge-info {
+  background-color: var(--status-info-bg);
+  color: var(--status-info);
+}
+.badge-dark {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-on-dark);
+}
+
+/* Inset panels & wells */
+.panel-inset {
+  background-color: var(--bg-panel-inset);
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+}
+
+.panel-white {
+  background-color: var(--bg-panel-white);
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+}

@@ -1,0 +1,67 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+backend/.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.pytest_cache/
+*.egg-info/
+
+# Node / Frontend
+node_modules/
+frontend/node_modules/
+dist/
+frontend/dist/
+dist-ssr/
+*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Large Binaries and Models (bin/colmap/COLMAP* and bin/models/**/*.onnx included; zips remain ignored)
+bin/colmap/*.zip
+*.zip
+*.tar.gz
+*.bin
+
+# Processing Workspaces and Datasets
+workspace/*
+!workspace/.gitkeep
+backend/workspace/*
+!backend/workspace/.gitkeep
+reference/*
+!reference/.gitkeep
+
+# 3D Mesh and Point Cloud Artifacts (except documentation/assets)
+*.ply
+*.obj
+*.mtl
+*.glb
+*.gltf
+*.db
+*.sqlite
+*.sqlite3
+
+# Media Files
+*.mp4
+*.mov
+*.avi
+*.mkv
+
+# Environment and Secrets
+.env
+.env.local
+.env.*.local
+*.log
+
+# Operating System & IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

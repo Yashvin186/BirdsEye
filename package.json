@@ -1,0 +1,26 @@
+{
+  "name": "birds-eye",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Birds Eye - Single-Pass Drone Video 3D Photogrammetry & AI Depth Reconstruction System",
+  "scripts": {
+    "dev": "node dev.js",
+    "frontend": "npm --prefix frontend run dev",
+    "backend": "node dev.js",
+    "build": "npm --prefix frontend run build"
+  },
+  "keywords": [
+    "photogrammetry",
+    "3d-reconstruction",
+    "drone",
+    "colmap",
+    "depth-anything-v2",
+    "point-cloud",
+    "mvs",
+    "fastapi",
+    "threejs",
+    "react"
+  ],
+  "author": "Yashvin",
+  "license": "MIT"
+}
